@@ -10,11 +10,14 @@ import {DataServiceService} from "../../services/data-service.service";
 export class SuggestionsComponent implements OnInit {
 
   countries: string[] = [];
+  genres: string[] = [];
   times: string[] = [];
   actors: string[] = [];
 
+
   selectedCountry: string;
   selectedTime: string;
+  selectedGenre: string;
   selectedActor: string;
 
   constructor(public router: Router,
@@ -24,12 +27,14 @@ export class SuggestionsComponent implements OnInit {
     this.selectedActor = '';
     this.selectedCountry = '';
     this.selectedTime = '';
+    this.selectedGenre = '';
     this.getData();
   }
 
   getData() {
     this.dataService.getAllQuestionAnswers().subscribe(data=>{
       this.countries = data.countries;
+      this.genres = data.genres;
       this.times = data.times;
       this.actors = data.actors;
     })
@@ -37,7 +42,7 @@ export class SuggestionsComponent implements OnInit {
 
   findSuggestion() {
     this.router.navigate(['/raspuns']);
-    this.dataService.sendAnswer(this.selectedCountry, this.selectedTime, this.selectedActor).subscribe(data=>{
+    this.dataService.sendAnswer(this.selectedCountry, this.selectedGenre, this.selectedTime, this.selectedActor).subscribe(data=>{
       localStorage.setItem("title",JSON.stringify(data.title));
       localStorage.setItem("url", JSON.stringify(data.imdbUrl));
       this.router.navigate(['/raspuns']);

@@ -15,7 +15,7 @@ export class DataServiceService {
     return this.httpClient.get<Question>(`${environment.ApiUrl}/questionAnswers`);
   }
 
-  sendAnswer(country: string, time: string, actor: string) {
-    return this.httpClient.post<any>(`${environment.ApiUrl}/answer`, {country, time, actor});
+  sendAnswer(country: string, genre: string, time: string, actor: string) {
+    return this.httpClient.post<any>(`${environment.ApiUrl}/answer`, {country, genre, time, actor});
   }
 }

@@ -15,6 +15,14 @@
       <p-dropdown [options]="countries" [(ngModel)]="selectedCountry" placeholder="Tara.."></p-dropdown>
     </p-panel>
     <div class="mt-4">
+      <p-panel header="Gen">
+        <p>
+          Alege genul filmului:
+        </p>
+        <p-dropdown [options]="genres" [(ngModel)]="selectedGenre" placeholder="Gen.."></p-dropdown>
+      </p-panel>
+    </div>
+    <div class="mt-4">
       <p-panel header="Durată">
         <p>
           Alege durata filmului:
