@@ -1,0 +1,37 @@
+<div class="p-mt-3">
+  <p-button type="button"
+            icon="pi pi-angle-left"
+            class="p-mr-3 p-mr-lg-5 p-ml-3 p-as-end p-mb-3 p-mt-3 p-pl-3 p-pr-3"
+            (click)="router.navigate(['/'])"
+            >
+  </p-button>
+</div>
+<div class="flex justify-content-center">
+  <div class="ml-8 mr-8 mt-4 w-80">
+    <p-panel header="Origine">
+      <p>
+        Alege țara de origine a filmului:
+      </p>
+      <p-dropdown [options]="countries" [(ngModel)]="selectedCountry" placeholder="Tara.."></p-dropdown>
+    </p-panel>
+    <div class="mt-4">
+      <p-panel header="Durată">
+        <p>
+          Alege durata filmului:
+        </p>
+        <p-dropdown [options]="times" [(ngModel)]="selectedTime" placeholder="Durata.."></p-dropdown>
+      </p-panel>
+    </div>
+    <div class="mt-4">
+      <p-panel header="Actori" class="mt-4 mb-8">
+        <p>
+          Alege un actor preferat:
+        </p>
+        <p-dropdown [options]="actors" [(ngModel)]="selectedActor" placeholder="Actor.."></p-dropdown>
+      </p-panel>
+    </div>
+  </div>
+</div>
+<div class="flex justify-content-center full-width mt-4 mb-8">
+  <button pButton class="mt-4 find" (click)="findSuggestion()">Află sugestia</button>
+</div>

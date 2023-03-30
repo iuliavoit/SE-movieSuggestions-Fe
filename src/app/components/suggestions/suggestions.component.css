@@ -1,0 +1,25 @@
+:host::ng-deep.p-panel .p-panel-header {
+  border: 1px solid #dee2e6;
+  padding: 0.8rem;
+  background: #f8f9fa;
+  color: #264653;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+
+::ng-deep.p-panel .p-panel-content{
+  color: #264653;
+  /*display: flex;
+  column-gap: 2rem;*/
+}
+::ng-deep.find.p-button{
+  width: 15rem;
+  display: flex;
+  justify-content: center;
+}
+::ng-deep.p-dropdown{
+  width: 10rem;
+}
+.w-80{
+  width: 80%;
+}
