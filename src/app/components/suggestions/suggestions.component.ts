@@ -43,9 +43,11 @@ export class SuggestionsComponent implements OnInit {
   findSuggestion() {
     this.router.navigate(['/raspuns']);
     this.dataService.sendAnswer(this.selectedCountry, this.selectedGenre, this.selectedTime, this.selectedActor).subscribe(data=>{
-      localStorage.setItem("title",JSON.stringify(data.title));
-      localStorage.setItem("url", JSON.stringify(data.imdbUrl));
-      this.router.navigate(['/raspuns']);
+      this.router.navigate(['/raspuns'],
+        { queryParams: {
+            title: data.title,
+            url: data.imdbUrl,
+          } });
     });
   }
 
