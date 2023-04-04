@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {DataServiceService} from "../../services/data-service.service";
 
@@ -21,7 +21,8 @@ export class SuggestionsComponent implements OnInit {
   selectedActor: string;
 
   constructor(public router: Router,
-              private dataService: DataServiceService) { }
+              private dataService: DataServiceService) {
+  }
 
   ngOnInit(): void {
     this.selectedActor = '';
@@ -32,7 +33,7 @@ export class SuggestionsComponent implements OnInit {
   }
 
   getData() {
-    this.dataService.getAllQuestionAnswers().subscribe(data=>{
+    this.dataService.getAllQuestionAnswers().subscribe(data => {
       this.countries = data.countries;
       this.genres = data.genres;
       this.times = data.times;
@@ -42,13 +43,19 @@ export class SuggestionsComponent implements OnInit {
 
   findSuggestion() {
     this.router.navigate(['/raspuns']);
-    this.dataService.sendAnswer(this.selectedCountry, this.selectedGenre, this.selectedTime, this.selectedActor).subscribe(data=>{
+    this.dataService.sendAnswer(this.selectedCountry, this.selectedGenre, this.selectedTime, this.selectedActor).subscribe(data => {
       this.router.navigate(['/raspuns'],
-        { queryParams: {
+        {
+          queryParams: {
             title: data.title,
             url: data.imdbUrl,
-          } });
+          }
+        });
     });
+  }
+
+  isDisabled(): boolean {
+    return (this.selectedActor==='' || this.selectedTime==='' || this.selectedGenre==='' || this.selectedCountry==='' );
   }
 
 }
